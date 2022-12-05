@@ -1,16 +1,10 @@
 import 'package:biblioiteso/pages/loan/Bloc/loans/loans_bloc.dart';
 import 'package:biblioiteso/pages/loan/loan.dart';
-import 'package:biblioiteso/pages/search/info_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
-import '../../providers/loanbook_provider.dart';
-import '../loan/loanadmi.dart';
-import '../login/login.dart';
 import '../profile/profile.dart';
-import '../register/register.dart';
 
 class MenuLateral extends StatelessWidget {
   @override
@@ -21,12 +15,12 @@ class MenuLateral extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           new UserAccountsDrawerHeader(
-            accountName: Text("CODEA APP"),
-            accountEmail: Text("informes@gmail.com"),
+            accountName: Text("Welcome to Biblio ITESO"),
+            accountEmail: Text(""),
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: NetworkImage(
-                        "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"),
+                        "https://iteso.mx/image/journal/article?img_id=14589651&t=1548117030845"),
                     fit: BoxFit.cover)),
           ),
           new ListTile(
@@ -36,17 +30,6 @@ class MenuLateral extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => Profile(),
-                ),
-              );
-            },
-          ),
-          new ListTile(
-            leading: Icon(FontAwesomeIcons.signIn),
-            title: Text("-Register"),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => RegisterBook(),
                 ),
               );
             },
@@ -62,29 +45,18 @@ class MenuLateral extends StatelessWidget {
               );
             },
           ),
-          new ListTile(
-            leading: Icon(Icons.notifications),
-            title: Text("-Reminder"),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => LoginApp(),
-                ),
-              );
-            },
-          ),
-          new ListTile(
-            leading: Icon(Icons.notifications),
-            title: Text("-LoanAdmi"),
-            onTap: () {
-              Lbloc.add(GetLoansEvent());
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => Loan(),
-                ),
-              );
-            },
-          ),
+          // new ListTile(
+          //   leading: Icon(Icons.notifications),
+          //   title: Text("-Admin Loans"),
+          //   onTap: () {
+          //     Lbloc.add(GetLoansEvent());
+          //     Navigator.of(context).push(
+          //       MaterialPageRoute(
+          //         builder: (context) => Loan(),
+          //       ),
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

@@ -36,5 +36,36 @@ class LoansBloc extends Bloc<LoansEvent, LoansState> {
       emit(LoansUpdateState(
           loansCount: loans.length, loansList: jsonEncode(loans)));
     });
+
+
+    on<ReturnLoanEvent>((event, emit) async {
+      await FirebaseFirestore.instance
+          .collection('user')
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          DocumentSnapshot documentSnapshot = doc;
+          Map<String, dynamic> userInfo = documentSnapshot.data() as Map<String, dynamic>;
+          if (userInfo['expediente'] == event.userID) {
+            var newLoans = [];
+            for (var loan in userInfo['loans']) {
+              if (loan['volumeInfo']['title'] != event.bookToReturn) {
+                newLoans.add(loan);
+              }
+            }
+            FirebaseFirestore.instance
+                .collection('user')
+                .doc(documentSnapshot.id)
+                .update({'loans': newLoans});
+          }
+        });
+      });
+      
+    });
+
+    on<UpdateBookToReturnEvent>((event, emit) {
+      emit(LoansUpdateBookToReturnState(bookToReturn: event.bookToReturn));
+    });
+
   }
 }

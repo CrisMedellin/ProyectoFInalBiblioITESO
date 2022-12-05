@@ -39,3 +39,11 @@ class LoansUpdateState extends LoansState {
     loansList : loansList
   );
 }
+
+class LoansUpdateBookToReturnState extends LoansState {
+  const LoansUpdateBookToReturnState({
+    required String bookToReturn
+  }):super(
+    bookToReturn : bookToReturn
+  );
+}

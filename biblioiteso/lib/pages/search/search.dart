@@ -1,10 +1,15 @@
+import 'package:biblioiteso/pages/search/menu_latadmi.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shimmer/flutter_shimmer.dart';
+import 'package:provider/provider.dart';
 
 import '../../auth/bloc/auth_bloc.dart';
 import '../../camera_qr.dart/camera.dart';
 import '../../items/item_book.dart';
+import '../../providers/loanbook_provider.dart';
 import 'bloc/search_book_bloc.dart';
 import 'menu_laterarl.dart';
 
@@ -25,7 +30,9 @@ class _SearchPageState extends State<SearchPage> {
     'autor',
     'Todos',
   ];
+  bool admi = false;
   String? dropdownValue;
+
   @override
   Widget build(BuildContext context) {
     TextEditingController searchController = TextEditingController();
