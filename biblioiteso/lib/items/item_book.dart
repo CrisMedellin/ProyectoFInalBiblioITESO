@@ -23,8 +23,8 @@ class ItemShowBook extends StatelessWidget {
           },
           child: Image.network(
             "${findBook["volumeInfo"]["imageLinks"] != null ? findBook["volumeInfo"]["imageLinks"]["thumbnail"] : "https://library.msu.ac.zw/img/nocover.png"}",
-            width: 105,
-            height: 105,
+            width: 110,
+            height: 110,
             fit: BoxFit.contain,
           ),
         ),

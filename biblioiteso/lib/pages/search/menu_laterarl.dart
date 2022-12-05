@@ -62,20 +62,20 @@ class MenuLateral extends StatelessWidget {
               );
             },
           ),
-          // new ListTile(
-          //   leading: Icon(Icons.notifications),
-          //   title: Text("-Reminder"),
-          //   onTap: () {
-          //     Navigator.of(context).push(
-          //       MaterialPageRoute(
-          //         builder: (context) => LoginApp(),
-          //       ),
-          //     );
-          //   },
-          // ),
           new ListTile(
             leading: Icon(Icons.notifications),
-            title: Text("-Admin Loans"),
+            title: Text("-Reminder"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => LoginApp(),
+                ),
+              );
+            },
+          ),
+          new ListTile(
+            leading: Icon(Icons.notifications),
+            title: Text("-LoanAdmi"),
             onTap: () {
               Lbloc.add(GetLoansEvent());
               Navigator.of(context).push(
