@@ -68,6 +68,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
               expediente: userInfo['expediente'] != null
                   ? userInfo['expediente']
                   : 'Pendiente',
+              admin: userInfo['admi'] != null ? userInfo['admi'] : false,
             ));
           } else {
             print('Document does not exist on the database');

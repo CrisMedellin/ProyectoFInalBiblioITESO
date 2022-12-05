@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 class LoanBook with ChangeNotifier {
   List<dynamic> _addedFavoriteteList = [];
-
-  //we does use of propertys List to get  de content and is a list of objects
   List<dynamic> get getaddedFavoriteteList => _addedFavoriteteList;
   String? _uid = "";
   void dlateTrack(dynamic ObjecTrack) {
@@ -35,7 +33,8 @@ class LoanBook with ChangeNotifier {
           Navigator.of(context).pop();
           notifyListeners();
         },
-        icon: Icon(Icons.favorite_border_outlined));
+        tooltip: 'solicitar libro',
+        icon: Icon(Icons.book));
   }
 
   Widget Item_Delate(BuildContext context, dynamic objec) {
